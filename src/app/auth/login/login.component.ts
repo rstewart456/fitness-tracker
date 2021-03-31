@@ -23,9 +23,6 @@ export class LoginComponent implements OnInit{
 
   ngOnInit(): void {
     this.isLoading$ = this.store.pipe(map(fromRoot.getIsLoading))
-    // this.loadingSubs = this.uiService.loadingStateChanged.subscribe(isLoading => {
-    //   this.isLoading = isLoading
-    // });
     this.loginForm = new FormGroup({
       email: new FormControl('', {
         validators: [Validators.required, Validators.email]
@@ -40,8 +37,4 @@ export class LoginComponent implements OnInit{
       password: this.loginForm.value.password
     })
   }
-
-  // ngOnDestroy() {
-  //   this.loadingSubs.unsubscribe();
-  // }
 }
